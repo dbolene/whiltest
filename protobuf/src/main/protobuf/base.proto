@@ -1,9 +1,0 @@
-package scout;
-
-option java_package = "com.whil.protobuf";
-
-option java_outer_classname = "WhilProtos";
-
-message ActorSoftRefProto {
-    optional string internalId = 1;
-}

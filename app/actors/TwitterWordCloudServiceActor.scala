@@ -16,10 +16,15 @@ class TwitterWordCloudServiceActor extends Actor with ActorLogging {
     case Initialize =>
       log.info(s"received -> Initialize")
 
-    case msg: FetchCloudKeywords =>
+    case msg: FetchCloudKeywordsForUser =>
       log.info(s"received -> FetchCloudKeywords: $msg")
 
     case msg =>
       log.info(s"received -> $msg")
   }
 }
+
+case class TwitterWordCloudData(
+                               fetchedUsers: Option[Set[String]] = None,
+                               wordCloud: Option[Map[String,Int]] = None
+                               )

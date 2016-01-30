@@ -14,10 +14,10 @@ class Application extends Controller {
 //      (JsPath \ "twitterHandles").read[List[String]]
 //  ) (FetchCloudKeywords.apply _)
 
-  implicit val fetchCloudKeywordsReads: Reads[FetchCloudKeywords] =
+  implicit val fetchCloudKeywordsReads: Reads[FetchCloudKeywordsForUser] =
     (JsPath \ "twitterHandles").read(
       Reads.list[String]
-    ).map( handles => FetchCloudKeywords(handles))
+    ).map( handles => FetchCloudKeywordsForUser(handles))
 
   val system = ActorSystem("WhilSystem")
 
@@ -31,7 +31,7 @@ class Application extends Controller {
 
   def fetchCloudKeywords() = Action(parse.json) { request =>
     val fetchRequestJson = request.body
-    val fetchRequest = fetchRequestJson.as[FetchCloudKeywords]
+    val fetchRequest = fetchRequestJson.as[FetchCloudKeywordsForUser]
 
     mainActor ! fetchRequest
 

@@ -1,31 +1,32 @@
-import sbtprotobuf.{ProtobufPlugin=>PB}
-import Keys._
+name := """rest"""
 
-organization := "com.whil"
+version := "1.0-SNAPSHOT"
 
-name := "whil-test"
-
-version := "0.1-SNAPSHOT"
+lazy val rest = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.11.6"
 
-scalacOptions ++= Seq("-feature")
-
 val akkaVersion = "2.3.11"
 
-lazy val protobuf = Project(id = "protobuf",
-                            base = file("protobuf"))
+libraryDependencies ++= Seq(
+  jdbc,
+  cache,
+  ws,
+  specs2 % Test,
+  "com.typesafe.akka" %% "akka-actor" % akkaVersion,
+  "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test",
+  "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
+  "org.apache.httpcomponents" % "httpcore" % "4.2",
+  "org.apache.httpcomponents" % "httpclient" % "4.2",
+  "org.apache.commons" % "commons-io" % "1.3.2",
+  "oauth.signpost" % "signpost-core" % "1.2",
+  "oauth.signpost" % "signpost-commonshttp4" % "1.2",
+  "junit" % "junit" % "4.5" % "test",
+  "org.scalatest" % "scalatest_2.11" % "2.1.5" % "test"
+)
 
-lazy val common = Project(id = "common",
-                            base = file("common"))
-                            .dependsOn(protobuf)
+resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
-lazy val rest = Project(id = "rest",
-                            base = file("rest"))
-                            .dependsOn(common)
-
-lazy val root = Project(id = "root",
-                            base = file("."))
-                          .aggregate(protobuf, common, rest)
-
-
+// Play provides two styles of routers, one expects its actions to be injected, the
+// other, legacy style, accesses its actions statically.
+routesGenerator := InjectedRoutesGenerator

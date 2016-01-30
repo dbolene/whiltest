@@ -1,6 +1,6 @@
-package com.whil.twitter
+package clients
 
-import com.whil.config.ConfigValues
+import config.ConfigValues
 import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer
 import org.apache.commons.io.IOUtils
 import org.apache.http.client.methods.HttpGet
@@ -11,7 +11,7 @@ import org.apache.http.impl.client.DefaultHttpClient
   */
 object TwitterInfoClient {
 
-  def fetchInfo(userId: String): String = {
+  def fetchInfo(userId: String): Either[String,String] = {
     val consumer = new CommonsHttpOAuthConsumer(ConfigValues.twitterConsumerKey, ConfigValues.twitterConsumerSecret)
     consumer.setTokenWithSecret(ConfigValues.twitterAccessToken, ConfigValues.twitterAccessTokenSecret)
 
@@ -21,7 +21,14 @@ object TwitterInfoClient {
     val response = client.execute(request)
 
     println(response.getStatusLine.getStatusCode)
-    println(IOUtils.toString(response.getEntity.getContent))
-    IOUtils.toString(response.getEntity.getContent)
+
+    response.getStatusLine.getStatusCode match {
+      case 200 =>
+        val responseString = IOUtils.toString(response.getEntity.getContent)
+        println(responseString)
+        Right(responseString)
+      case 400 =>
+        Left("Not Found")
+    }
   }
 }

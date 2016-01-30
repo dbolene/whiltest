@@ -14,11 +14,3 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-rjs" % "1.0.7")
 addSbtPlugin("com.typesafe.sbt" % "sbt-digest" % "1.1.0")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-mocha" % "1.1.0")
-
-// addtional
-
-addSbtPlugin("com.github.gseitz" % "sbt-protobuf" % "0.4.0")
-
-addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")
-
-
