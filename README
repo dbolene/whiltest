@@ -1,4 +1,237 @@
-This is your new Play application
-=================================
+Whil Test
 
-This file will be packaged with your application, when using `activator dist`.
+to run:
+
+cd whilTest
+sbt run
+
+
+
+POST to localhost:9000/submit
+
+{
+"twitterHandles": [
+"_felipera", "dyross", "wearewhil", "klout"
+] }
+
+
+GET to localhost:9000/word-cloud
+
+returns:
+
+{
+  "wordcloud": [
+    {
+      "word": "companies.",
+      "count": 1
+    },
+    {
+      "word": "writing",
+      "count": 1
+    },
+    {
+      "word": "for",
+      "count": 2
+    },
+    {
+      "word": "support",
+      "count": 1
+    },
+    {
+      "word": "people",
+      "count": 1
+    },
+    {
+      "word": "in",
+      "count": 2
+    },
+    {
+      "word": "is",
+      "count": 1
+    },
+    {
+      "word": "am",
+      "count": 1
+    },
+    {
+      "word": "online",
+      "count": 1
+    },
+    {
+      "word": "Ex",
+      "count": 1
+    },
+    {
+      "word": "Scala",
+      "count": 1
+    },
+    {
+      "word": "boston",
+      "count": 1
+    },
+    {
+      "word": "Whil",
+      "count": 1
+    },
+    {
+      "word": "mindfulness,",
+      "count": 1
+    },
+    {
+      "word": "enthusiast,",
+      "count": 1
+    },
+    {
+      "word": "@kloutsupport",
+      "count": 1
+    },
+    {
+      "word": "create",
+      "count": 1
+    },
+    {
+      "word": "training",
+      "count": 1
+    },
+    {
+      "word": "sports",
+      "count": 1
+    },
+    {
+      "word": "leader",
+      "count": 1
+    },
+    {
+      "word": "I",
+      "count": 1
+    },
+    {
+      "word": "that",
+      "count": 1
+    },
+    {
+      "word": "individuals",
+      "count": 1
+    },
+    {
+      "word": "you",
+      "count": 1
+    },
+    {
+      "word": "share",
+      "count": 1
+    },
+    {
+      "word": "code,",
+      "count": 1
+    },
+    {
+      "word": "yoga",
+      "count": 1
+    },
+    {
+      "word": "player",
+      "count": 1
+    },
+    {
+      "word": "love.",
+      "count": 1
+    },
+    {
+      "word": "engineer,",
+      "count": 1
+    },
+    {
+      "word": "helps",
+      "count": 1
+    },
+    {
+      "word": "nowadays.",
+      "count": 1
+    },
+    {
+      "word": "Tweet",
+      "count": 1
+    },
+    {
+      "word": "software",
+      "count": 1
+    },
+    {
+      "word": "scala",
+      "count": 1
+    },
+    {
+      "word": "content",
+      "count": 1
+    },
+    {
+      "word": "boxing",
+      "count": 1
+    },
+    {
+      "word": "questions.",
+      "count": 1
+    },
+    {
+      "word": "guitar",
+      "count": 1
+    },
+    {
+      "word": "american",
+      "count": 1
+    },
+    {
+      "word": "Klout",
+      "count": 1
+    },
+    {
+      "word": "into",
+      "count": 1
+    },
+    {
+      "word": "Slice",
+      "count": 1
+    },
+    {
+      "word": "fan,",
+      "count": 1
+    },
+    {
+      "word": "@hbogo.",
+      "count": 1
+    },
+    {
+      "word": "digital",
+      "count": 1
+    },
+    {
+      "word": "pie.",
+      "count": 1
+    },
+    {
+      "word": "@klout",
+      "count": 1
+    },
+    {
+      "word": "of",
+      "count": 1
+    },
+    {
+      "word": "mostly",
+      "count": 1
+    },
+    {
+      "word": "and",
+      "count": 4
+    },
+    {
+      "word": "leadership",
+      "count": 1
+    },
+    {
+      "word": "the",
+      "count": 1
+    }
+  ]
+}
