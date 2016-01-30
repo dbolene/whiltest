@@ -25,7 +25,7 @@ object TwitterInfoClient {
     response.getStatusLine.getStatusCode match {
       case 200 =>
         val responseString = IOUtils.toString(response.getEntity.getContent)
-        println(responseString)
+        println(s"\n\n$responseString")
         Right(responseString)
       case 400 =>
         Left("Not Found")

@@ -4,7 +4,7 @@ object TwitterWordCloudServiceActorProtocol {
 
   case object Initialize
 
-  case class FetchCloudKeywordsForUser(users: List[String])
+  case class FetchCloudKeywordsForUsers(users: List[String])
 
   case object RequestSuccessful
 
