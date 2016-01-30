@@ -25,3 +25,15 @@ libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.1.5" % "test"
 
 libraryDependencies += "com.typesafe" % "config" % "1.3.0"
 
+libraryDependencies += "org.apache.httpcomponents" % "httpcore" % "4.0.1"
+
+libraryDependencies += "org.apache.httpcomponents" % "httpclient" % "4.2"
+
+libraryDependencies += "org.apache.commons" % "commons-io" % "1.3.2"
+
+libraryDependencies += "oauth.signpost" % "signpost-core" % "1.2"
+
+libraryDependencies += "oauth.signpost" % "signpost-commonshttp4" % "1.2"
+
+
+

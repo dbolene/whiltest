@@ -12,5 +12,6 @@ class TestTwitterInfoClient extends JUnitSuite {
   @Test def testConfigValueAccess() {
 
     assertTrue("testing", true)
+    TwitterInfoClient.fetchInfo("dyross")
   }
 }
