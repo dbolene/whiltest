@@ -10,4 +10,8 @@ object TwitterWordCloudServiceActorProtocol {
 
   case class ErrorResponse(errorMessage: String)
 
+  case object RequestWordCloud
+
+  case class WordCloud(wordCloud: Map[String,Int])
+
 }

@@ -49,12 +49,28 @@ class TwitterWordCloudServiceActor extends Actor with ActorLogging {
 
       update(TwitterWordCloudData(wordCloud = Some(updateWordCloud)))
 
-    case msg =>
-      log.info(s"received -> $msg")
+      log.info(s"data: $data")
+
+    case RequestWordCloud =>
+      log.info(s"received -> RequestWordCloud")
+
+      sender() ! WordCloud(wordCloud = data.wordCloud.getOrElse(Map.empty[String,Int]))
+
+    case unknown =>
+      log.warning(s"received -> $unknown")
   }
 }
 
 case class TwitterWordCloudData(
                                fetchedUsers: Option[Set[String]] = None,
                                wordCloud: Option[Map[String,Int]] = None
-                               )
+                               ) {
+  override def toString = {
+    "\nTwitterWordCloudData(\n" +
+      s"  fetchedUsers: $fetchedUsers \n" +
+      s"  wordCloud: $wordCloud \n" +
+      ")\n"
+  }
+}
+
+
