@@ -1,6 +1,0 @@
-package clients
-
-
-object TwitterClient {
-
-}
